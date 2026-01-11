@@ -143,7 +143,7 @@ watch(
       <div class="grid--column one-third">
         <p><strong>Liens utiles</strong></p>
         <RouterLink to="/a-propos#contact"> Nous écrire </RouterLink><br />
-        <a href="https://github.com/Fransgenre/administrans"> Page GitHub du projet </a><br />
+        <a href="https://github.com/toutesdesfemmes/administrans"> Page GitHub du projet </a><br />
       </div>
     </div>
     <p></p>

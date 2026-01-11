@@ -64,7 +64,7 @@ Pour rajouter de nouveaux documents ou modifier les existants, les fichiers impo
 Il vous faudra NodeJS, et Yarn installé au préalable. Le projet utilisant yarn `v1` et node `v18`, il est possible d'utliser [Volta](https://volta.sh) pour ne pas avoir à rétrograder son installation locale de yarn et node. Si vous développez avec les dernières versions, en particulier de yarn, pensez à ne pas commit `yarn.lock`.
 
 ```sh
-git clone git@github.com:Fransgenre/administrans.git
+git clone git@github.com:toutesdesfemmes/administrans.git
 cd administrans
 yarn install
 ```
