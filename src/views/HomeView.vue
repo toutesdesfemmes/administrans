@@ -10,9 +10,11 @@ import { RouterLink } from 'vue-router'
   <section class="width--narrow my-4">
     <div class="grid--row">
       <div class="grid--column">
-        <strong>Je veux demander un changement de prénom et/ou de mention de sexe à l'état civil</strong>
+        <strong
+          >Je veux demander un changement de prénom et/ou de mention de sexe à l'état civil</strong
+        >
         <p>Cette étape vous permet de faire reconnaître le changement officiellement.</p>
-        <RouterLink class="my-2 button" to="/cec">Commencer</RouterLink>
+        <RouterLink class="my-2 button" to="/cec"> Commencer </RouterLink>
       </div>
       <div class="grid--column">
         <strong>
@@ -22,7 +24,7 @@ import { RouterLink } from 'vue-router'
           Cette étape vous permet de répercuter les changements liés à votre état civil auprès des
           différentes organisations avec lesquelles vous intéragissez.
         </p>
-        <RouterLink class="my-2 button" to="/mise-a-jour">Commencer</RouterLink>
+        <RouterLink class="my-2 button" to="/mise-a-jour"> Commencer </RouterLink>
       </div>
     </div>
     <p>

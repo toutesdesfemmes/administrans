@@ -290,90 +290,48 @@
     {
       "last_update": "2023-01-23",
       "genre": {
-        "canaux": [
-          "insee",
-          "courrier"
-        ],
-        "tags": [
-          "justificatifs-nécessaires",
-          "incohérences"
-        ]
+        "canaux": ["insee", "courrier"],
+        "tags": ["justificatifs-nécessaires", "incohérences"]
       },
       "prénom": {
-        "canaux": [
-          "insee",
-          "courrier"
-        ],
-        "tags": [
-          "justificatifs-nécessaires",
-          "incohérences"
-        ]
+        "canaux": ["insee", "courrier"],
+        "tags": ["justificatifs-nécessaires", "incohérences"]
       },
       "id": "cpam",
       "label": "Caisse Primaire d'Assurance Maladie (CPAM)",
-      "catégories": [
-        "santé",
-        "quotidien",
-        "administration",
-        "finances"
-      ]
+      "catégories": ["santé", "quotidien", "administration", "finances"]
     },
     {
       "last_update": "2023-01-23",
       "genre": null,
       "prénom": {
-        "canaux": [
-          "variable"
-        ]
+        "canaux": ["variable"]
       },
       "id": "mutuelle",
       "label": "Mutuelle / complémentaire santé",
-      "catégories": [
-        "santé",
-        "quotidien",
-        "finances",
-        "privé"
-      ]
+      "catégories": ["santé", "quotidien", "finances", "privé"]
     },
     {
       "last_update": "2023-01-23",
       "genre": null,
       "prénom": {
-        "canaux": [
-          "insee",
-          "téléphone",
-          "courrier"
-        ],
-        "tags": [
-          "incohérences"
-        ]
+        "canaux": ["insee", "téléphone", "courrier"],
+        "tags": ["incohérences"]
       },
       "id": "france-travail",
       "label": "France Travail / Pôle Emploi",
-      "catégories": [
-        "finances",
-        "pro",
-        "administration"
-      ]
+      "catégories": ["finances", "pro", "administration"]
     },
     {
       "last_update": "2023-01-23",
       "genre": null,
       "prénom": {
-        "canaux": [
-          "variable"
-        ],
-        "tags": [
-          "justificatifs-nécessaires"
-        ]
+        "canaux": ["variable"],
+        "tags": ["justificatifs-nécessaires"]
       },
       "id": "banque",
       "label": "Banque",
-      "catégories": [
-        "finances",
-        "quotidien",
-        "privé"
-      ]
+      "catégories": ["finances", "quotidien", "privé"]
     },
     {
       "last_update": "2023-01-23",
@@ -381,135 +339,70 @@
       "prénom": null,
       "id": "rib",
       "label": "Relevé d'Identité Bancaire (RIB)",
-      "catégories": [
-        "finances",
-        "quotidien",
-        "privé"
-      ],
+      "catégories": ["finances", "quotidien", "privé"],
       "voir": "banque"
     },
     {
       "last_update": "2023-01-23",
       "genre": {
-        "canaux": [
-          "insee",
-          "courrier",
-          "web"
-        ],
-        "tags": [
-          "justificatifs-nécessaires",
-          "incohérences",
-          "lent"
-        ]
+        "canaux": ["insee", "courrier", "web"],
+        "tags": ["justificatifs-nécessaires", "incohérences", "lent"]
       },
       "prénom": {
-        "canaux": [
-          "insee",
-          "courrier",
-          "web"
-        ],
-        "tags": [
-          "justificatifs-nécessaires",
-          "incohérences",
-          "lent"
-        ]
+        "canaux": ["insee", "courrier", "web"],
+        "tags": ["justificatifs-nécessaires", "incohérences", "lent"]
       },
       "id": "impôts",
       "label": "Centre des Impôts",
-      "catégories": [
-        "finances",
-        "administration"
-      ]
+      "catégories": ["finances", "administration"]
     }
   ],
   "entréesById": {
     "cpam": {
       "last_update": "2023-01-23",
       "genre": {
-        "canaux": [
-          "insee",
-          "courrier"
-        ],
-        "tags": [
-          "justificatifs-nécessaires",
-          "incohérences"
-        ]
+        "canaux": ["insee", "courrier"],
+        "tags": ["justificatifs-nécessaires", "incohérences"]
       },
       "prénom": {
-        "canaux": [
-          "insee",
-          "courrier"
-        ],
-        "tags": [
-          "justificatifs-nécessaires",
-          "incohérences"
-        ]
+        "canaux": ["insee", "courrier"],
+        "tags": ["justificatifs-nécessaires", "incohérences"]
       },
       "id": "cpam",
       "label": "Caisse Primaire d'Assurance Maladie (CPAM)",
-      "catégories": [
-        "santé",
-        "quotidien",
-        "administration",
-        "finances"
-      ]
+      "catégories": ["santé", "quotidien", "administration", "finances"]
     },
     "mutuelle": {
       "last_update": "2023-01-23",
       "genre": null,
       "prénom": {
-        "canaux": [
-          "variable"
-        ]
+        "canaux": ["variable"]
       },
       "id": "mutuelle",
       "label": "Mutuelle / complémentaire santé",
-      "catégories": [
-        "santé",
-        "quotidien",
-        "finances",
-        "privé"
-      ]
+      "catégories": ["santé", "quotidien", "finances", "privé"]
     },
     "france-travail": {
       "last_update": "2023-01-23",
       "genre": null,
       "prénom": {
-        "canaux": [
-          "insee",
-          "téléphone",
-          "courrier"
-        ],
-        "tags": [
-          "incohérences"
-        ]
+        "canaux": ["insee", "téléphone", "courrier"],
+        "tags": ["incohérences"]
       },
       "id": "france-travail",
       "label": "France Travail / Pôle Emploi",
-      "catégories": [
-        "finances",
-        "pro",
-        "administration"
-      ]
+      "catégories": ["finances", "pro", "administration"]
     },
     "banque": {
       "last_update": "2023-01-23",
       "genre": null,
       "prénom": {
-        "canaux": [
-          "variable"
-        ],
-        "tags": [
-          "justificatifs-nécessaires"
-        ]
+        "canaux": ["variable"],
+        "tags": ["justificatifs-nécessaires"]
       },
       "id": "banque",
       "label": "Banque",
-      "catégories": [
-        "finances",
-        "quotidien",
-        "privé"
-      ]
+      "catégories": ["finances", "quotidien", "privé"]
     },
     "rib": {
       "last_update": "2023-01-23",
@@ -517,45 +410,22 @@
       "prénom": null,
       "id": "rib",
       "label": "Relevé d'Identité Bancaire (RIB)",
-      "catégories": [
-        "finances",
-        "quotidien",
-        "privé"
-      ],
+      "catégories": ["finances", "quotidien", "privé"],
       "voir": "banque"
     },
     "impôts": {
       "last_update": "2023-01-23",
       "genre": {
-        "canaux": [
-          "insee",
-          "courrier",
-          "web"
-        ],
-        "tags": [
-          "justificatifs-nécessaires",
-          "incohérences",
-          "lent"
-        ]
+        "canaux": ["insee", "courrier", "web"],
+        "tags": ["justificatifs-nécessaires", "incohérences", "lent"]
       },
       "prénom": {
-        "canaux": [
-          "insee",
-          "courrier",
-          "web"
-        ],
-        "tags": [
-          "justificatifs-nécessaires",
-          "incohérences",
-          "lent"
-        ]
+        "canaux": ["insee", "courrier", "web"],
+        "tags": ["justificatifs-nécessaires", "incohérences", "lent"]
       },
       "id": "impôts",
       "label": "Centre des Impôts",
-      "catégories": [
-        "finances",
-        "administration"
-      ]
+      "catégories": ["finances", "administration"]
     }
   }
 }

@@ -47,7 +47,7 @@ export const fields = [
     id: 'lieuNaissance',
     name: 'Commune et département de naissance',
     type: 'text',
-    placeholder: 'Marseille (13)',
+    placeholder: 'Marseille (13)'
   },
   {
     id: 'adresse',
@@ -70,7 +70,7 @@ export const fields = [
   //   type: 'textarea',
   //   persist: false,
   // },
-  
+
   {
     id: 'société',
     name: 'Nom de la société',
@@ -110,7 +110,7 @@ function category(name) {
   return {
     name,
     isCategory: true,
-    showCondition: () => true,
+    showCondition: () => true
   }
 }
 function field(id, params = {}) {
@@ -129,10 +129,10 @@ function field(id, params = {}) {
 export const templates = [
   {
     id: 'demande-maj',
-    name: "Demande de mise à jour de prénom et/ou civilité",
-  template: `DemandeMaj`,
+    name: 'Demande de mise à jour de prénom et/ou civilité',
+    template: `DemandeMaj`,
     description:
-      "Pour demander à une entité, entreprise ou administration de mettre à jour vos informations.",
+      'Pour demander à une entité, entreprise ou administration de mettre à jour vos informations.',
     help: `
 
 <br>
@@ -155,22 +155,22 @@ au préalable pour que la demande de changement de civilité aboutisse.**
           { value: `enseignement`, label: 'École ou université' },
           { value: `impôts`, label: 'Impôts' },
           { value: `poleEmploi`, label: 'France Travail' },
-          { value: `autre`, label: 'Autre organisme : banque, EDF, Opérateur mobile ou internet, etc.' },
+          {
+            value: `autre`,
+            label: 'Autre organisme : banque, EDF, Opérateur mobile ou internet, etc.'
+          }
         ],
         action: (data) => {
           if (data.organisme === 'cpam') {
             data.refOrganismeType = 'Numéro de sécurité sociale'
             data.ligneDestinataire = `À l'attention de la CPAM du <Département>`
-          }
-          else if (data.organisme === 'enseignement') {
+          } else if (data.organisme === 'enseignement') {
             data.refOrganismeType = 'Numéro étudiant'
             data.ligneDestinataire = `À l'attention du service scolarité de <École>`
-          }
-          else if (data.organisme === 'poleEmploi') {
+          } else if (data.organisme === 'poleEmploi') {
             data.refOrganismeType = 'Numéro'
             data.ligneDestinataire = `À l'attention de France Travail (<Ville>)`
-          }
-          else if (data.organisme === 'impôts') {
+          } else if (data.organisme === 'impôts') {
             data.refOrganismeType = 'Numéro fiscal'
             data.ligneDestinataire = `À l'attention du Service des Impôts des Particuliers de <Ville>`
           } else {
@@ -182,12 +182,12 @@ au préalable pour que la demande de changement de civilité aboutisse.**
       field('ligneDestinataire', {
         name: `Service recevant la demande`,
         type: 'textarea',
-        attributes: {rows: 3},
+        attributes: { rows: 3 },
         class: 'field--fullwidth',
         placeholder: `À l'attention de <service>`,
         default: () => {
           return null
-        },
+        }
       }),
       field('refOrganismeType', {
         name: `Type de référence`,
@@ -206,14 +206,14 @@ Sélectionnez "Aucune" si vous n'êtes pas sûr·e ou ne disposez pas d'une tell
           { label: `Numéro de contrat`, value: 'Numéro de contrat' },
           { label: `Numéro de sécurité sociale`, value: 'Numéro de sécurité sociale' },
           { label: `Numéro étudiant`, value: 'Numéro étudiant' },
-          { label: `Numéro fiscal`, value: 'Numéro fiscal' },
+          { label: `Numéro fiscal`, value: 'Numéro fiscal' }
         ]
       }),
       field('refOrganisme', {
         name: `Référence auprès de l'oganisme`,
         help: `Par exemple votre numéro de contrat, numéro de compte, identifiant client, numéro de sécurité sociale, etc.`,
         type: 'text',
-        persist: false,
+        persist: false
       }),
       category('Votre demande'),
       field('changementDemandé', {
@@ -226,17 +226,19 @@ Sélectionnez "Aucune" si vous n'êtes pas sûr·e ou ne disposez pas d'une tell
         choices: [
           { label: `Mise à jour du prénom`, value: 'prénom' },
           { label: `Mise à jour de la civilité`, value: 'civilité' },
-          { label: `Mise à jour du prénom et de la civilité`, value: 'prénomEtCivilité' },
+          { label: `Mise à jour du prénom et de la civilité`, value: 'prénomEtCivilité' }
         ]
       }),
       category('Vos informations'),
-      field('prénom', {help: `Il s'agit de vos prénoms revendiqués, séparés par une virgule`}),
+      field('prénom', { help: `Il s'agit de vos prénoms revendiqués, séparés par une virgule` }),
       field('nom'),
       field('civilité', {
-        help: "Il s'agit de votre civilité revendiquée",
+        help: "Il s'agit de votre civilité revendiquée"
       }),
       field('deadname', {
-        showCondition: (data) => {return data.changementDemandé != 'civilité'},
+        showCondition: (data) => {
+          return data.changementDemandé != 'civilité'
+        }
       }),
       field('adresse'),
       field('email'),
@@ -244,19 +246,23 @@ Sélectionnez "Aucune" si vous n'êtes pas sûr·e ou ne disposez pas d'une tell
       category('Options du document'),
       field('ajouterCSEC', {
         type: 'checkbox',
-        default: () => {return false},
+        default: () => {
+          return false
+        },
         name: `Appuyer la demande de changement de civilité avec la décision de changement de sexe à l'état civil.`,
-        showCondition: (data) => {return data.changementDemandé != 'prénom'},
+        showCondition: (data) => {
+          return data.changementDemandé != 'prénom'
+        }
       }),
       field('mentionDDDEtCnil', {
         type: 'checkbox',
         default: () => {
           return false
         },
-        name: `Ajouter une mention sur la saisie potentielle du Défenseur des Droits et de la CNIL`,
+        name: `Ajouter une mention sur la saisie potentielle du Défenseur des Droits et de la CNIL`
       }),
       field('villeDocument'),
-      field('dateDocument'),
+      field('dateDocument')
     ]
   },
   {
@@ -273,7 +279,7 @@ Sélectionnez "Aucune" si vous n'êtes pas sûr·e ou ne disposez pas d'une tell
       category('Tribunal et type de requête'),
       field('tribunal', {
         name: 'Nom du tribunal',
-        placeholder: 'Tribunal Judiciaire de Toulouse',
+        placeholder: 'Tribunal Judiciaire de Toulouse'
       }),
       field('adresseTribunal', {
         name: 'Adresse du tribunal',
@@ -282,7 +288,7 @@ Sélectionnez "Aucune" si vous n'êtes pas sûr·e ou ne disposez pas d'une tell
       field('villeTribunal', {
         name: 'Ville du tribunal',
         type: 'text',
-        placeholder: 'Toulouse',
+        placeholder: 'Toulouse'
       }),
       field('typeChangement', {
         name: `Type de demande`,
@@ -292,23 +298,29 @@ Sélectionnez "Aucune" si vous n'êtes pas sûr·e ou ne disposez pas d'une tell
         },
         choices: [
           { label: `Changement mention de sexe`, value: 'genre' },
-          { label: `Changement de prénom et de mention de sexe`, value: 'prénomEtGenre' },
+          { label: `Changement de prénom et de mention de sexe`, value: 'prénomEtGenre' }
         ]
       }),
       category('Vos informations'),
 
-      field('genre', {help: `Il s'agit genre désiré/revendiqué`}),
+      field('genre', { help: `Il s'agit genre désiré/revendiqué` }),
       field('prénom', {
         id: 'nouveauxPrénoms',
         name: `Prénom(s) demandés`,
         help: `Il s'agit de vos nouveaux prénoms, séparés par une virgule`,
-        showCondition: (data) => {return data.typeChangement === 'prénomEtGenre'},
+        showCondition: (data) => {
+          return data.typeChangement === 'prénomEtGenre'
+        }
       }),
-      field('prénom', {id: 'prénomsActuels', name: `Prénom(s) actuels`, help: `Il s'agit de vos prénoms actuels à l'état civil, séparés par une virgule`}),
+      field('prénom', {
+        id: 'prénomsActuels',
+        name: `Prénom(s) actuels`,
+        help: `Il s'agit de vos prénoms actuels à l'état civil, séparés par une virgule`
+      }),
       field('nom'),
       field('dateNaissance'),
       field('lieuNaissance'),
-      field('nationalité', {type: 'text', name: 'Nationalité', default: () => 'française'}),
+      field('nationalité', { type: 'text', name: 'Nationalité', default: () => 'française' }),
       field('adresse'),
       field('email'),
       field('téléphone'),
@@ -326,14 +338,14 @@ Sélectionnez "Aucune" si vous n'êtes pas sûr·e ou ne disposez pas d'une tell
       field('contexte', {
         name: 'Contexte de la requête',
         type: 'textarea',
-        attributes: {rows: 10},
+        attributes: { rows: 10 },
         help: `Utilisez cet endroit pour personnaliser le corps de la requête et justifier votre demande.
 Il n'est pas nécessaire de donner des justifications d'ordre médical, psychiatrique,
 chirurgicales sauf si vous le souhaitez.
 
 Il est préférable d'éviter de rentrer trop dans l'intime pour éviter de normaliser cela auprès des 
 personnes examinant les dossiers. Néanmoins, cela peut s'avérer nécessaire si le tribunal
-auprès duquel vous déposez votre requête à tendance à demander ce genre de détails.`,
+auprès duquel vous déposez votre requête à tendance à demander ce genre de détails.`
       }),
       field('contexteExemple', {
         name: 'Insérer un exemple de contexte',
@@ -358,13 +370,13 @@ Cette transition sociale s'accompagne également d'autres changements liés à m
 
 Je suis satisfaite de ma transition et je me sens plus équilibrée et en accord avec moi-même depuis que j'ai entrepris ces changements.
             `
-          },
+          }
         ]
       }),
       field('actesÀMettreÀJour', {
         name: 'Actes supplémentaires à mettre à jour',
         type: 'textarea',
-        attributes: {rows: 10},
+        attributes: { rows: 10 },
         help: `
 Le tribunal ordonnera la mise à jour de votre acte de naissance. Selon votre situation, listez ici les autres actes d'état civil pour lesquels le tribunal devra ordonner une mise à jour.
 Un acte par ligne.
@@ -378,7 +390,7 @@ Ces documents doivent être joints à votre requête et listés dans le champ su
       field('justificatifsRequête', {
         name: 'Justificatifs et documents joints',
         type: 'textarea',
-        attributes: {rows: 10},
+        attributes: { rows: 10 },
         help: `
 Listez ici les justificatifs et documents que vous joindrez à votre requête.
 N'incluez aucun certificat médical. Un justificatif par ligne.
@@ -427,25 +439,47 @@ Preuves de refus de changement de la part d'organismes tiers`
     structure: [
       category('Vos informations'),
       field('nom'),
-      field('nom', {id: 'nomUsage', name: `Nom d'usage ou nom d'époux/épouse`}),
-      field('genre', {id: 'genreÉtatCivil', help: `Il s'agit de votre genre actuel à l'état civil`}),
-      field('prénom', {id: 'prénoms', name: `Prénom(s), séparés par une virgule`, help: `Il s'agit de vos prénoms actuels à l'état civil, séparés par une virgule`}),
+      field('nom', { id: 'nomUsage', name: `Nom d'usage ou nom d'époux/épouse` }),
+      field('genre', {
+        id: 'genreÉtatCivil',
+        help: `Il s'agit de votre genre actuel à l'état civil`
+      }),
+      field('prénom', {
+        id: 'prénoms',
+        name: `Prénom(s), séparés par une virgule`,
+        help: `Il s'agit de vos prénoms actuels à l'état civil, séparés par une virgule`
+      }),
       field('dateNaissance'),
       field('lieuNaissance'),
-      field('nationalités', {type: 'text', name: 'Nationalité(s)', help: 'Séparées par des virgules'}),
-      field('adresseVoie', {type: 'text', name: 'Rue et numéro de rue'}),
-      field('adresseComplément', {type: 'text', name: `Complément d'adresse`}),
-      field('adresseCodePostal', {type: 'text', name: `Code postal`}),
-      field('adresseCommune', {type: 'text', name: `Commune`}),
-      field('adressePays', {type: 'text', name: `Pays`, default: () => {return 'France'}}),
+      field('nationalités', {
+        type: 'text',
+        name: 'Nationalité(s)',
+        help: 'Séparées par des virgules'
+      }),
+      field('adresseVoie', { type: 'text', name: 'Rue et numéro de rue' }),
+      field('adresseComplément', { type: 'text', name: `Complément d'adresse` }),
+      field('adresseCodePostal', { type: 'text', name: `Code postal` }),
+      field('adresseCommune', { type: 'text', name: `Commune` }),
+      field('adressePays', {
+        type: 'text',
+        name: `Pays`,
+        default: () => {
+          return 'France'
+        }
+      }),
       field('email'),
       field('téléphone'),
       category('Votre demande'),
-      field('prénom', {id: 'nouveauxPrénoms', name: `Prénom(s), séparés par une virgule`, help: `Il s'agit des nouveaux prénoms que vous souhaitez, séparés par une virgule`}),
+      field('prénom', {
+        id: 'nouveauxPrénoms',
+        name: `Prénom(s), séparés par une virgule`,
+        help: `Il s'agit des nouveaux prénoms que vous souhaitez, séparés par une virgule`
+      }),
       field('motif', {
         type: 'textarea',
         name: `Motif`,
-        default: () => `Madame, monsieur, je vous demande aujourd'hui le changement de mes prénoms, car je suis une personne transgenre, et après de nombreuses années de réflexion j'ai entamé ma transition autant physiquement que socialement. Mes prénoms de naissance sont un obstacle dans mes démarches administratives, mais aussi pour l'accès à l'emploi ainsi que pour récupérer du courrier. D'avance merci.`
+        default: () =>
+          `Madame, monsieur, je vous demande aujourd'hui le changement de mes prénoms, car je suis une personne transgenre, et après de nombreuses années de réflexion j'ai entamé ma transition autant physiquement que socialement. Mes prénoms de naissance sont un obstacle dans mes démarches administratives, mais aussi pour l'accès à l'emploi ainsi que pour récupérer du courrier. D'avance merci.`
       }),
       field('typeDemande', {
         name: `Type de demande`,
@@ -455,15 +489,17 @@ Preuves de refus de changement de la part d'organismes tiers`
         },
         choices: [
           { label: `C'est votre première demande`, value: 'première' },
-          { label: `Vous avez déjà demandé un changement de prénom(s)`, value: 'plusieurs' },
+          { label: `Vous avez déjà demandé un changement de prénom(s)`, value: 'plusieurs' }
         ]
       }),
       field('demandes', {
         name: `Demandes précédentes`,
-        showCondition: (data) => {return data.typeDemande === 'plusieurs'},
+        showCondition: (data) => {
+          return data.typeDemande === 'plusieurs'
+        },
         type: 'textarea',
         placeholder: '05/09/2021 à Lille, Mairie, 12/11/2021',
-        help: `Une demande par ligne, séparer la date et lieu, l'autorité saisie et la date de décision par une virgule.`,
+        help: `Une demande par ligne, séparer la date et lieu, l'autorité saisie et la date de décision par une virgule.`
       }),
       category('Mise à jour de vos documents et ceux de votre famille'),
       field('majActeNaissance', {
@@ -471,7 +507,7 @@ Preuves de refus de changement de la part d'organismes tiers`
         default: () => {
           return true
         },
-        name: `Demander une mise à jour de votre acte de naissance`,
+        name: `Demander une mise à jour de votre acte de naissance`
       }),
       field('majActeMariage', {
         type: 'checkbox',
@@ -486,7 +522,9 @@ Preuves de refus de changement de la part d'organismes tiers`
       }),
       field('lieuMariage', {
         type: 'text',
-        showCondition: (data) => {return data.majActeMariage},
+        showCondition: (data) => {
+          return data.majActeMariage
+        },
         name: `Lieu de votre mariage`
       }),
       field('majActeNaissanceConjoint', {
@@ -494,16 +532,17 @@ Preuves de refus de changement de la part d'organismes tiers`
         name: `Demander une mise à jour de l'acte de naissance de votre conjoint ou partenaire de PACS`
       }),
       field('nom', {
-        id: 'nomConjoint',
+        id: 'nomConjoint'
       }),
       field('prénom', {
-        id: 'prénomsConjoint', name: `Prénom(s), séparés par une virgule`,
+        id: 'prénomsConjoint',
+        name: `Prénom(s), séparés par une virgule`
       }),
       field('dateNaissance', {
-        id: 'dateNaissanceConjoint',
+        id: 'dateNaissanceConjoint'
       }),
       field('lieuNaissance', {
-        id: 'lieuNaissanceConjoint',
+        id: 'lieuNaissanceConjoint'
       }),
       field('majActeNaissanceEnfants', {
         type: 'checkbox',
@@ -511,10 +550,12 @@ Preuves de refus de changement de la part d'organismes tiers`
       }),
       field('enfants', {
         name: `Informations sur vos enfants`,
-        showCondition: (data) => {return !!data.majActeNaissanceEnfants },
+        showCondition: (data) => {
+          return !!data.majActeNaissanceEnfants
+        },
         type: 'textarea',
         placeholder: 'Lund, Élise, 05/09/2021, Marseille (13)',
-        help: `Un·e enfant par ligne, séparer le nom, prénom, date de naissance et lieu de naissance par une virgule`,
+        help: `Un·e enfant par ligne, séparer le nom, prénom, date de naissance et lieu de naissance par une virgule`
       }),
       category('Finalisation du document'),
       field('villeDocument'),
@@ -544,8 +585,8 @@ et utiliser la fonction « Partager le document »**. Cela lui permettra de l'im
       category(`Information de la personne concernée par l'attestation`),
       field('prénom'),
       field('nom'),
-      field('genre', {help: `Il s'agit genre désiré/revendiqué`}),
-      field('deadname', {name: 'Deadname (facultatif)'}),
+      field('genre', { help: `Il s'agit genre désiré/revendiqué` }),
+      field('deadname', { name: 'Deadname (facultatif)' }),
       field('dateNaissance'),
       field('lieuNaissance'),
 

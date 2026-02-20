@@ -7,5 +7,5 @@ export default {
   'requete-changement-etat-civil-tribunal': RequeteCecTribunal,
   'changement-prenom-mairie': RequetePrenomMairie,
   'attestation-temoignage': AttestationTemoignage,
-  'demande-maj': DemandeMaj,
+  'demande-maj': DemandeMaj
 }

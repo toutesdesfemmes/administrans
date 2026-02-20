@@ -1,8 +1,8 @@
 <script setup>
 import { reactive, watch, ref, inject } from 'vue'
 import DynamicForm from './DynamicForm.vue'
+import MarkdownRenderer from './MarkdownRenderer.vue'
 import { useGlobalStore } from '@/store'
-import {renderMarkdown} from '@/utils'
 import { useRoute } from 'vue-router'
 import documentsComponents from '@/documentsComponents'
 
@@ -20,7 +20,9 @@ const props = defineProps({
   prefillData: {
     type: Object,
     required: false,
-    default: () => {return {}}
+    default: () => {
+      return {}
+    }
   }
 })
 const formFields = {}
@@ -35,12 +37,10 @@ props.template.structure.forEach((f) => {
       if ('checkbox' == f.type) {
         if (['false', '0', ''].includes(props.prefillData[f.id])) v = false
         else v = true
-      }
-      else {
+      } else {
         v = props.prefillData[f.id]
       }
-    }
-    else if (store.formData[f.id] != undefined) {
+    } else if (store.formData[f.id] != undefined) {
       v = store.formData[f.id]
     } else if (f.default != undefined) {
       v = f.default()
@@ -53,7 +53,7 @@ props.template.structure.forEach((f) => {
     withActions.push(f)
   }
 })
-withActions.forEach(f => {
+withActions.forEach((f) => {
   f.action(formFields)
 })
 const localData = reactive(formFields)
@@ -79,7 +79,7 @@ watch(
   manualEdit,
   (v) => {
     if (v) {
-      plausible.trackEvent('edit', { props: { document: props.template.id } }, {url: route.path})
+      plausible.trackEvent('edit', { props: { document: props.template.id } }, { url: route.path })
     }
   },
   { deep: true }
@@ -88,7 +88,7 @@ function updateLocalData(v) {
   Object.assign(localData, v)
 }
 function downloadPdf() {
-  plausible.trackEvent('print', { props: { document: props.template.id } }, {url: route.path})
+  plausible.trackEvent('print', { props: { document: props.template.id } }, { url: route.path })
   window.print()
 }
 async function shareUrl() {
@@ -96,7 +96,7 @@ async function shareUrl() {
   const params = new URLSearchParams()
   for (const key in localData) {
     if (Object.hasOwnProperty.call(localData, key)) {
-      const element = localData[key];
+      const element = localData[key]
       if (element != undefined) {
         params.set(key, element)
       }
@@ -104,10 +104,10 @@ async function shareUrl() {
   }
   url = url + '?' + params.toString()
   await window.navigator.clipboard.writeText(url)
-  plausible.trackEvent('share', { props: { document: props.template.id } }, {url: route.path})
-  alert(`Un lien de partage a été copié dans le presse-papier. Il contient toutes les informations du document, ne le partagez qu'avec des personnes de confiance`)
-
-  
+  plausible.trackEvent('share', { props: { document: props.template.id } }, { url: route.path })
+  alert(
+    `Un lien de partage a été copié dans le presse-papier. Il contient toutes les informations du document, ne le partagez qu'avec des personnes de confiance`
+  )
 }
 
 function deleteData() {
@@ -129,6 +129,10 @@ function deleteData() {
 
 const componentTemplate = documentsComponents[props.template.id]
 
+function deleteDataAndAddFormKey() {
+  deleteData()
+  formKey.value++
+}
 </script>
 
 <template>
@@ -136,29 +140,27 @@ const componentTemplate = documentsComponents[props.template.id]
     <div class="grid--row">
       <div class="grid--column hide-for-print">
         <h1>{{ template.name }}</h1>
-        <div 
+        <MarkdownRenderer
           v-if="template.description"
           class="text--small"
-          v-html="renderMarkdown(template.description)"></div>
-        <div 
-          v-if="template.help"
-          class="text--small"
-          v-html="renderMarkdown(template.help)"></div>
+          :source="template.description"
+        />
+        <MarkdownRenderer v-if="template.help" class="text--small" :source="template.help" />
         <p class="text--small">Remplissez le formulaire ci-dessous pour obtenir votre document.</p>
         <DynamicForm
           :key="formKey"
-          :class="{'position--sticky': template.stickyForm}"
-          :modelValue="localData"
+          :class="{ 'position--sticky': template.stickyForm }"
+          :model-value="localData"
           :disabled="manualEdit"
           :structure="template.structure"
-          @update:modelValue="updateLocalData"
+          @update:model-value="updateLocalData"
         >
           <p v-if="manualEdit" class="message--info px-1 py-1">
             En mode édition, il n'est pas possible de modifier les données du formulaire. Vous
             pouvez désactiver l'édition, mais vous perdrez les modifications effectuées manuellement
             dans le document.
           </p>
-          <button @click.prevent="manualEdit = false" v-if="manualEdit" class="inverted">
+          <button v-if="manualEdit" class="inverted" @click.prevent="manualEdit = false">
             Désactiver l'édition
           </button>
           <hr class="hidden" />
@@ -168,7 +170,7 @@ const componentTemplate = documentsComponents[props.template.id]
           <button class="my-2 mx-2 inverted" @click.prevent="shareUrl">
             Partager le document…
           </button>
-          <button class="my-2 inverted" @click.prevent="deleteData();formKey = formKey + 1">
+          <button class="my-2 inverted" @click.prevent="deleteDataAndAddFormKey">
             Effacer les données…
           </button>
         </DynamicForm>
@@ -180,7 +182,7 @@ const componentTemplate = documentsComponents[props.template.id]
               <h2>Rendu du document</h2>
             </div>
             <div class="grid--column text--right">
-              <button class="inverted" @click.prevent="manualEdit = true" v-if="!manualEdit">
+              <button v-if="!manualEdit" class="inverted" @click.prevent="manualEdit = true">
                 Éditer
               </button>
             </div>
@@ -191,7 +193,7 @@ const componentTemplate = documentsComponents[props.template.id]
           </p>
           <hr class="hidden" />
         </div>
-        <div class="document position--sticky" id="rendered" :contenteditable="manualEdit">
+        <div id="rendered" class="document position--sticky" :contenteditable="manualEdit">
           <component :is="componentTemplate" :data="localData" :structure="template.structure" />
         </div>
       </div>

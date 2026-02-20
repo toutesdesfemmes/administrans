@@ -23,12 +23,11 @@ if (template) {
     ogTitle: title,
     ogDescription: template.description,
     twitterTitle: title,
-    twitterDescription: template.description,
+    twitterDescription: template.description
   })
 }
-
 </script>
 <template>
-  <DocumentForm v-if="template" :template="template" :prefillData="$route.query"/>
+  <DocumentForm v-if="template" :template="template" :prefill-data="$route.query" />
   <p v-else>Ce document n'existe pas.</p>
 </template>

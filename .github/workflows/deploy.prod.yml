@@ -7,7 +7,7 @@ on:
       # - $default-branch  # Set a branch name to trigger deployment
   pull_request:
 
-concurrency: 
+concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 
@@ -23,7 +23,8 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '16'
+          # eslint@10 requires Node >= 22.13.0 (or 20.19.x); use 22.13.0 to satisfy both
+          node-version: '22.13.0'
           cache: 'yarn'
 
       - name: Install dependencies
@@ -44,7 +45,8 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         if: github.ref == 'refs/heads/main'
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages # The branch the action should deploy to.
           folder: dist # The folder the action should deploy.
-          
+
+

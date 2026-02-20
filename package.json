@@ -2,12 +2,16 @@
   "name": "administrans",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^v20.19.4 || >=22.12.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite-ssg build",
     "preview": "vite preview",
     "test:unit": "vitest",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "lint": "eslint . --fix --cache",
     "format": "prettier --write src/"
   },
   "dependencies": {
@@ -17,24 +21,28 @@
     "pinia": "^2.0.32",
     "pinia-plugin-persistedstate": "^3.1.0",
     "plausible-tracker": "^0.3.8",
-    "vite-ssg": "^0.22.2",
-    "vue": "^3.2.47",
+    "vite-ssg": "^28.2.2",
+    "vue": "^3.5.22",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
+    "@eslint/js": "^9.38.0",
     "@rushstack/eslint-patch": "^1.2.0",
     "@vitejs/plugin-vue": "^4.0.0",
-    "@vue/eslint-config-prettier": "^7.1.0",
+    "@vue/eslint-config-prettier": "10.2.0",
     "@vue/test-utils": "^2.3.0",
-    "eslint": "^8.34.0",
-    "eslint-plugin-vue": "^9.9.0",
+    "eslint": "10.0.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.8.0",
+    "globals": "^17.3.0",
     "jsdom": "^21.1.0",
-    "prettier": "^2.8.4",
-    "vite": "^4.1.4",
-    "vitest": "^0.29.1"
+    "prettier": "3.6.2",
+    "vite": "^7.1.12",
+    "vitest": "^4.0.2",
+    "vue-eslint-parser": "^10.4.0"
   },
   "volta": {
-    "node": "18.19.1",
-    "yarn": "1.22.21"
+    "node": "22.12.0",
+    "yarn": "1.22.22"
   }
 }

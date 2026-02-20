@@ -1,6 +1,6 @@
 export default function useDocumentTemplate(props) {
   const fieldsById = {}
-  props.structure.forEach(e => {
+  props.structure.forEach((e) => {
     if (e.isInput) {
       fieldsById[e.id] = e
     }
@@ -57,6 +57,6 @@ ${renderWithGender('né')} le ${renderDate('dateNaissance')}
     renderDate,
     renderWithGender,
     genderSwitch,
-    renderFullDescription,
+    renderFullDescription
   }
 }

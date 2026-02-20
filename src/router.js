@@ -33,7 +33,7 @@ const routerConfig = {
     {
       path: '/mise-a-jour',
       name: 'miseAJour',
-      component: MiseAJourView,
+      component: MiseAJourView
     },
     {
       path: '/documents',
@@ -45,7 +45,7 @@ const routerConfig = {
       name: 'documents',
       props: true,
       component: DocumentView
-    },
+    }
   ]
 }
 

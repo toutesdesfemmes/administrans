@@ -4,13 +4,11 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 import 'vite-ssg'
-import {templates} from './src/documents'
+import { templates } from './src/documents'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-  ],
+  plugins: [vue()],
   ssgOptions: {
     script: 'async',
     formatting: 'prettify',
@@ -19,14 +17,12 @@ export default defineConfig({
     includedRoutes(paths, routes) {
       // include path to documents for prerendering
       return routes.flatMap((route) => {
-        return route.name === 'documents'
-          ? templates.map(t => `/documents/${t.id}`)
-          : route.path
+        return route.name === 'documents' ? templates.map((t) => `/documents/${t.id}`) : route.path
       })
-    },
+    }
   },
   build: {
-    minify: 'esbuild',
+    minify: 'esbuild'
   },
   resolve: {
     alias: {

@@ -12,18 +12,16 @@ useSeoMeta({
   ogTitle: title,
   ogDescription: description,
   twitterTitle: title,
-  twitterDescription: description,
-  
+  twitterDescription: description
 })
-
 </script>
 
 <template>
   <section class="width--narrow px-1 py-2">
     <h1>Listes des documents et démarches</h1>
     <p>
-        Voici la liste des documents et démarches que vous pouvez entamer directement
-        sur Administrans.
+      Voici la liste des documents et démarches que vous pouvez entamer directement sur
+      Administrans.
     </p>
     <DocumentsList class="my-2" />
   </section>
