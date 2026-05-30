@@ -1,6 +1,11 @@
+import {
+  renderWithGender as rwg,
+  genderSwitch as gs
+} from '@/lib/utils/gender'
+
 export default function useDocumentTemplate(props) {
   const fieldsById = {}
-  props.structure.forEach(e => {
+  props.structure.forEach((e) => {
     if (e.isInput) {
       fieldsById[e.id] = e
     }
@@ -30,18 +35,10 @@ export default function useDocumentTemplate(props) {
     return `<${field}>`
   }
   function renderWithGender(word, genderField = 'genre', appendLetter = 'e') {
-    const gender = props.data[genderField]
-    if (gender === 'féminin') {
-      word = `${word}${appendLetter}`
-    }
-    return word
+    return rwg(word, props.data[genderField], appendLetter)
   }
   function genderSwitch(mascWord, femWord, genderField = 'genre') {
-    const gender = props.data[genderField]
-    if (gender === 'féminin') {
-      return femWord
-    }
-    return mascWord
+    return gs(mascWord, femWord, props.data[genderField])
   }
   function renderFullDescription() {
     let name = renderValue('prénom')
@@ -57,6 +54,6 @@ ${renderWithGender('né')} le ${renderDate('dateNaissance')}
     renderDate,
     renderWithGender,
     genderSwitch,
-    renderFullDescription,
+    renderFullDescription
   }
 }
