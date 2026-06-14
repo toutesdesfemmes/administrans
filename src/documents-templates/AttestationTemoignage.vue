@@ -1,21 +1,20 @@
 <script setup>
 import useDocumentTemplate from '@/templates'
 
-const p = defineProps( { data: { type: Object }, structure: { type: Array } } )
-const {
-  renderValue,
-  renderWithGender,
-  renderDate,
-  renderFullDescription
-} = useDocumentTemplate( p )
+const p = defineProps({ data: { type: Object }, structure: { type: Array } })
+const { renderValue, renderDate, renderFullDescription, renderWithGender } = useDocumentTemplate(p)
 </script>
 
 <template>
   <div class="grid--row">
     <div class="grid--column">
       <div class="adress--sender" v-if="renderValue('adresseTiers')">
-        {{ renderValue('prénomTiers') }} {{ renderValue('nomTiers') }}<br />{{ renderValue('adresseTiers') }}
-        <template v-if="data['téléphoneTiers']"><br />Téléphone : {{ renderValue('téléphoneTiers') }}</template>
+        {{ renderValue('prénomTiers') }} {{ renderValue('nomTiers') }}<br />{{
+          renderValue('adresseTiers')
+        }}
+        <template v-if="data['téléphoneTiers']"
+          ><br />Téléphone : {{ renderValue('téléphoneTiers') }}</template
+        >
         <template v-if="data['emailTiers']"><br />Email : {{ renderValue('emailTiers') }}</template>
       </div>
     </div>
@@ -35,20 +34,19 @@ const {
   </p>
   <p>Madame, Monsieur,</p>
   <p>
-    Je sous-{{ renderWithGender('signé', 'genreTiers') }}
-    {{ renderValue('prénomTiers') }} {{ renderValue('nomTiers') }},
-    {{ renderWithGender('né', 'genreTiers') }} le {{ renderDate('dateNaissanceTiers') }}
-    à {{ renderValue('lieuNaissanceTiers') }},
-    demeurant au {{ renderValue('adresseTiers') }}
+    Je sous-{{ renderWithGender('signé', 'genreTiers') }} {{ renderValue('prénomTiers') }}
+    {{ renderValue('nomTiers') }}, {{ renderWithGender('né', 'genreTiers') }} le
+    {{ renderDate('dateNaissanceTiers') }} à {{ renderValue('lieuNaissanceTiers') }}, demeurant au
+    {{ renderValue('adresseTiers') }}
     déclare sur l'honneur
     <template v-if="data.typeAttestation === 'prénom'">
       <template v-if="data.deadname && data.deadname.trim()">
-        n'appeler {{ renderFullDescription() }} que par son véritable prénom {{ renderValue('prénom') }} {{
-          renderValue('nom') }}.
+        n'appeler {{ renderFullDescription() }} que par son véritable prénom
+        {{ renderValue('prénom') }} {{ renderValue('nom') }}.
       </template>
       <template v-else>
-        ignorer le prénom d'état civil de {{ renderFullDescription() }} et ne l'appeler que {{ renderValue('prénom') }} {{
-          renderValue('nom') }}.
+        ignorer le prénom d'état civil de {{ renderFullDescription() }} et ne l'appeler que
+        {{ renderValue('prénom') }} {{ renderValue('nom') }}.
       </template>
     </template>
     <template v-else-if="data.typeAttestation === 'genre'">
@@ -57,20 +55,19 @@ const {
     <template v-else>
       genrer {{ renderFullDescription() }} exclusivement au {{ renderValue('genre') }}.
       <template v-if="data.deadname && data.deadname.trim()">
-        Je ne l'appelle que par son véritable prénom {{ renderValue('prénom') }} {{ renderValue('nom') }}.
+        Je ne l'appelle que par son véritable prénom {{ renderValue('prénom') }}
+        {{ renderValue('nom') }}.
       </template>
       <template v-else>
-        J'ignore son prénom d'état civil et ne l'appelle que {{ renderValue('prénom') }} {{ renderValue('nom') }}.
+        J'ignore son prénom d'état civil et ne l'appelle que {{ renderValue('prénom') }}
+        {{ renderValue('nom') }}.
       </template>
-
     </template>
   </p>
   <p v-if="data.contenuAttestation && data.contenuAttestation.trim()">
     {{ data.contenuAttestation }}
   </p>
-  <p>
-    Fait pour faire valoir ce que de droit,
-  </p>
+  <p>Fait pour faire valoir ce que de droit,</p>
   <p class="signature">{{ renderValue('prénomTiers') }} {{ renderValue('nomTiers') }}</p>
   <p>Pièces jointes :</p>
   <ul class="attachments">
