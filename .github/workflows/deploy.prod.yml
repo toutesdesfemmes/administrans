@@ -33,8 +33,9 @@ jobs:
       - name: Build
         run: yarn build
         env:
-          VITE_PLAUSIBLE_TRACKING_DOMAIN: administrans.fr
-          VITE_PLAUSIBLE_URL: https://stats.administrans.fr
+          VITE_UMAMI_SRC: https://in.administrans.fr/u.js
+          VITE_UMAMI_WEBSITE_ID: 4bc91646-7545-4186-b634-991de539575c
+          VITE_UMAMI_DOMAINS: administrans.fr
           VITE_REDIRECT_DOMAIN: administrans.fr
 
       - name: Disable jekyll

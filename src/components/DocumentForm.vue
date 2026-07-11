@@ -1,14 +1,10 @@
 <script setup>
-import { reactive, watch, ref, inject } from 'vue'
+import { reactive, watch, ref } from 'vue'
 import DynamicForm from './DynamicForm.vue'
 import { useGlobalStore } from '@/store'
 import {renderMarkdown} from '@/utils'
-import { useRoute } from 'vue-router'
 import documentsComponents from '@/documentsComponents'
-
-const route = useRoute()
-
-const plausible = inject('plausible')
+import { trackEvent } from '@/analytics'
 
 const store = useGlobalStore()
 
@@ -79,7 +75,7 @@ watch(
   manualEdit,
   (v) => {
     if (v) {
-      plausible.trackEvent('edit', { props: { document: props.template.id } }, {url: route.path})
+      trackEvent('edit', { document: props.template.id })
     }
   },
   { deep: true }
@@ -88,7 +84,7 @@ function updateLocalData(v) {
   Object.assign(localData, v)
 }
 function downloadPdf() {
-  plausible.trackEvent('print', { props: { document: props.template.id } }, {url: route.path})
+  trackEvent('print', { document: props.template.id })
   window.print()
 }
 async function shareUrl() {
@@ -104,7 +100,7 @@ async function shareUrl() {
   }
   url = url + '?' + params.toString()
   await window.navigator.clipboard.writeText(url)
-  plausible.trackEvent('share', { props: { document: props.template.id } }, {url: route.path})
+  trackEvent('share', { document: props.template.id })
   alert(`Un lien de partage a été copié dans le presse-papier. Il contient toutes les informations du document, ne le partagez qu'avec des personnes de confiance`)
 
   
