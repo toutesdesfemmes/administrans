@@ -11,8 +11,6 @@
   ],
   "\u0000vite/modulepreload-polyfill": [
   ],
-  "\u0000vite/preload-helper": [
-  ],
   "index.html": [
   ],
   "node_modules/@unhead/dom/dist/index.mjs": [
@@ -233,15 +231,6 @@
   ],
   "node_modules/pinia/dist/pinia.mjs": [
   ],
-  "node_modules/plausible-tracker/build/module/index.js": [
-    "/assets/index-b4772415.js"
-  ],
-  "node_modules/plausible-tracker/build/module/lib/request.js": [
-    "/assets/index-b4772415.js"
-  ],
-  "node_modules/plausible-tracker/build/module/lib/tracker.js": [
-    "/assets/index-b4772415.js"
-  ],
   "node_modules/unhead/dist/index.mjs": [
   ],
   "node_modules/vite-ssg/dist/index.mjs": [
@@ -257,6 +246,8 @@
   "node_modules/vue/dist/vue.runtime.esm-bundler.js": [
   ],
   "src/App.vue": [
+  ],
+  "src/analytics.js": [
   ],
   "src/assets/main.css": [
   ],
