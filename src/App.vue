@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import { inject, watch, reactive } from 'vue'
+import { watch, reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useGlobalStore } from '@/store'
 import { useHead, useSeoMeta } from '@vueuse/head'
@@ -83,8 +83,6 @@ useSeoMeta({
   twitterDescription: description,
 })
 
-const plausible = inject('plausible')
-
 watch(
   () => route.path,
   (v) => {
@@ -95,13 +93,6 @@ watch(
         router.replace(match.fullPath)
       }
     }
-    const config = ({
-      url: v,
-      domain: window.location.hostname,
-      referrer: document.referrer || null,
-      deviceWidth: window.innerWidth,
-    });
-    plausible.trackEvent('pageview', {}, config)
   },
   {immediate: true},
 )

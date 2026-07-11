@@ -15,7 +15,7 @@ useSeoMeta({
   
 })
 
-const plausibleEnabled = import.meta.env.VITE_PLAUSIBLE_URL
+const analyticsEnabled = import.meta.env.VITE_UMAMI_WEBSITE_ID
 const store = useGlobalStore()
 
 function deleteData() {
@@ -99,7 +99,7 @@ function deleteData() {
     </ul>
     <p>Merci beaucoup et prenez soin de vous &lt;3</p>
   </section>
-  <section class="width--xnarrow my-2" v-if="plausibleEnabled">
+  <section class="width--xnarrow my-2" v-if="analyticsEnabled">
     <h2>Analytique</h2>
     <p>
       Pour avoir une idée de l'utilisation du site et des aspects à améliorer ou retravailler, des

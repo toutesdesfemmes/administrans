@@ -16,7 +16,6 @@
     "marked": "4",
     "pinia": "^2.0.32",
     "pinia-plugin-persistedstate": "^3.1.0",
-    "plausible-tracker": "^0.3.8",
     "vite-ssg": "^0.22.2",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
