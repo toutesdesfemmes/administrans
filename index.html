@@ -21,6 +21,28 @@
       data-exclude-hash="true"
       data-domains="administrans.fr"
     ></script>
+    <script>
+      (function guardRecorderUploads(recordUrl) {
+        const fetch = globalThis.fetch.bind(globalThis);
+        globalThis.fetch = async (input, init) => {
+          if (input !== recordUrl)
+            return fetch(input, init);
+          const body = JSON.parse(init.body);
+          if (body.type !== "heatmap")
+            return new globalThis.Response(null, { status: 204 });
+          for (const event of body.payload.events) {
+            const url = new globalThis.URL(event.url);
+            event.url = url.origin + url.pathname;
+          }
+          return fetch(input, { ...init, body: JSON.stringify(body) });
+        };
+      })("https://in.administrans.fr/api/record")
+    </script>
+    <script
+      defer=""
+      src="https://in.administrans.fr/r.js"
+      data-website-id="4bc91646-7545-4186-b634-991de539575c"
+    ></script>
     <meta http-equiv="content-language" content="fr-fr" />
     <meta
       name="description"
