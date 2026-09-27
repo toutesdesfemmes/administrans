@@ -35,6 +35,7 @@ jobs:
         env:
           VITE_UMAMI_SRC: https://in.administrans.fr/u.js
           VITE_UMAMI_WEBSITE_ID: 4bc91646-7545-4186-b634-991de539575c
+          VITE_UMAMI_RECORDER_SRC: https://in.administrans.fr/r.js
           VITE_UMAMI_DOMAINS: administrans.fr
           VITE_REDIRECT_DOMAIN: administrans.fr
 
