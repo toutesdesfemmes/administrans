@@ -125,7 +125,7 @@ const { renderValue, renderDate, genderSwitch, renderWithGender } = useDocumentT
     </blockquote>
     <p>L’article 61-6 dudit code ajoute :</p>
     <blockquote>
-      <p>« La demande est présentée devant <strong>le tribunal de grande instance</strong>.</p>
+      <p>« La demande est présentée devant <strong>le tribunal judiciaire</strong>.</p>
       <p>
         Le demandeur fait état de son consentement libre et éclairé à la modification de la mention
         relative à son sexe dans les actes de l'état civil et produit tous éléments de preuve au
