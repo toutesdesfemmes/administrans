@@ -130,6 +130,7 @@ export const templates = [
     id: 'demande-maj',
     name: 'Demande de mise à jour de prénom et/ou civilité',
     template: `DemandeMaj`,
+    updatedAt: '2026-05-30',
     description:
       'Pour demander à une entité, entreprise ou administration de mettre à jour vos informations.',
     help: `
@@ -268,6 +269,7 @@ Sélectionnez "Aucune" si vous n'êtes pas sûr·e ou ne disposez pas d'une tell
     id: 'requete-changement-etat-civil-tribunal',
     name: 'Requête pour changement de prénom(s) et/ou de mention de sexe au tribunal',
     template: `RequeteCecTribunal`,
+    updatedAt: '2026-08-18',
     description: `Modèle de requête simplifiée à soumettre au tribunal pour un changement d'état civil.`,
     help: `Basé sur les modèles suivants :
 
@@ -433,6 +435,7 @@ Preuves de refus de changement de la part d'organismes tiers`
     id: 'changement-prenom-mairie',
     name: 'Cerfa pour changement de prénom(s) en mairie ou consulat',
     template: `RequetePrenomMairie`,
+    updatedAt: '2025-03-29',
     description: 'Cerfa N° 16233*04 pour demande de changement de prénom.',
     help: `L'original peut être téléchargé et rempli à la main sur [service-public.fr](https://www.service-public.fr/particuliers/vosdroits/R63177)`,
     structure: [
@@ -565,6 +568,7 @@ Preuves de refus de changement de la part d'organismes tiers`
     id: 'attestation-temoignage',
     name: "Attestation pour témoigner de l'utilisation d'un prénom et/ou genre en vue d'une demande de modification d'état civil",
     template: `AttestationTemoignage`,
+    updatedAt: '2026-05-30',
     description: `
 Cette attestation est destinée à être remplie et signée par vos proches
 et incluse dans votre demande de changements de prénom/mention de sexe.
