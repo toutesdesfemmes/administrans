@@ -59,6 +59,8 @@ Pour rajouter de nouveaux documents ou modifier les existants, les fichiers impo
 - `src/documentsComponents.js` qui contient l'association entre un document et le template à utiliser pour le rendu
 - `src/documents-templates/` qui contient tous les fichiers de rendu des documents
 
+Quand vous modifiez un template ou sa structure, mettez à jour le champ `updatedAt` (date du jour, format `YYYY-MM-DD`) dans `documents.js`.
+
 ### Installation initiale
 
 Il vous faudra NodeJS, et Yarn installé au préalable. Le projet utilisant yarn `v1` et node `v18`, il est possible d'utliser [Volta](https://volta.sh) pour ne pas avoir à rétrograder son installation locale de yarn et node. Si vous développez avec les dernières versions, en particulier de yarn, pensez à ne pas commit `yarn.lock`.
